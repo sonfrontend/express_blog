@@ -1,0 +1,3 @@
+{
+  "src/**/*.{js,html,json,scss}": "yarn run beatiful"
+}
