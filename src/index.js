@@ -1,11 +1,18 @@
 const express = require('express');
 // const morgan = require("morgan");
 const { create } = require('express-handlebars');
+var methodOverride = require('method-override');
+const db = require('./config/db');
 const path = require('path');
 const app = express();
+
+app.use(methodOverride('_method'));
 const port = 3000;
 
 const route = require('./routes');
+
+// Connect db
+db.connect();
 
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -26,6 +33,11 @@ app.use(express.json());
 const hbs = create({
     extname: '.hbs',
     partialsDir: path.join(__dirname, 'resources/views', 'partials'),
+    helpers: {
+        sum(a, b) {
+            return a + b;
+        },
+    },
 });
 
 app.engine('.hbs', hbs.engine);

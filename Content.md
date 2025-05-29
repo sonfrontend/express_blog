@@ -18,3 +18,5 @@ II. Xây dựng Website
 
 1. Mô hình MVC
 2. Route & controller
+3. Model (Slug: mongoose-slug-generator)
+4. MongooDB

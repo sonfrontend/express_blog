@@ -3,7 +3,7 @@ const router = express.Router();
 
 const site = require('../app/controllers/Site');
 
-router.use('/search', site.search);
-router.use('/', site.index);
+router.get('/search', site.search);
+router.get('/', site.index);
 
 module.exports = router;
